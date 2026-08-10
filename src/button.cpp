@@ -30,11 +30,12 @@ ButtonHandler::ButtonHandler() {
   brightness_presets[6] = 13;
 
   // foam threshold presets (5 levels)
-  foam_presets[0] = 30;// no foam
-  foam_presets[1] = 5;
-  foam_presets[2] = 4;
-  foam_presets[3] = 3;
-  foam_presets[4] = 2;
+  // foam is the low intensity fringe below PARTICLE_THRESHOLD, so these must stay under it
+  foam_presets[0] = 3.0f;  // above the liquid threshold, so no foam ever draws
+  foam_presets[1] = 1.6f;
+  foam_presets[2] = 1.2f;
+  foam_presets[3] = 0.8f;
+  foam_presets[4] = 0.4f;
 }
 
 void ButtonHandler::init() {
@@ -226,7 +227,7 @@ void ButtonHandler::cycleFoam() {
   // advance to next foam threshold preset with wraparound (5 levels)
   current_foam_index = (current_foam_index + 1) % 5;
 
-  int new_foam = foam_presets[current_foam_index];
+  float new_foam = foam_presets[current_foam_index];
 
   Serial.print("Foam threshold changed to: ");
   Serial.println(new_foam);
@@ -243,7 +244,7 @@ int ButtonHandler::getCurrentBrightness() {
   return brightness_presets[current_brightness_index];
 }
 
-int ButtonHandler::getCurrentFoamThreshold() {
+float ButtonHandler::getCurrentFoamThreshold() {
   return foam_presets[current_foam_index];
 }
 

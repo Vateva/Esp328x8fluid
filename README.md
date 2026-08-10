@@ -135,7 +135,7 @@ Smooth velocity transfers between particles and staggered MAC grid:
 State machine with debouncing for three interaction types:
 - **Single Tap (< 600ms):** cycle through 7 brightness levels (3-13 intensity)(*)
 - **Double Tap (< 250ms between):** cycle through 17 color presets (blues, greens, reds, yellows, purples, pinks, white)(*)
-- **Long Press (≥ 600ms):** cycle through 5 foam threshold levels (2-30 particle count)(*)
+- **Long Press (≥ 600ms):** cycle through 5 foam threshold levels (0.4-3.0 LED intensity)(*)
 - **Debouncing:** 25ms settling time eliminates mechanical noise(*)
 - **NVS Persistence:** settings saved to flash immediately after change, restored on boot
 
@@ -308,7 +308,7 @@ PHYSICAL_HEIGHT = 0.5f
 ```cpp
 PARTICLE_THRESHOLD = 2.0f          // min LED intensity for liquid color
 LED_PERSISTENCE = 0.60f            // display smoothing decay
-// Foam thresholds: 30, 5, 4, 3, 2  // configured in button presets
+// Foam thresholds: 3.0, 1.6, 1.2, 0.8, 0.4  // configured in button presets
 ```
 
 ## Usage

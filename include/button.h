@@ -73,7 +73,7 @@ class ButtonHandler {
   
   // preset arrays
   int brightness_presets[7];
-  int foam_presets[5];
+  float foam_presets[5];
   
   // nvs storage object
   Preferences preferences;
@@ -102,7 +102,7 @@ class ButtonHandler {
   // getters for current settings
   ColorPreset getCurrentColor();
   int getCurrentBrightness();
-  int getCurrentFoamThreshold();
+  float getCurrentFoamThreshold();
   
   // get rgb values for current color preset
   void getCurrentColorRGB(uint8_t* r, uint8_t* g, uint8_t* b);

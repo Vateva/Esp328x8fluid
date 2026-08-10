@@ -165,7 +165,7 @@ void visualizeParticles() {
   uint8_t scaled_b = (base_b * brightness) / 255;
 
   // get current foam threshold
-  int foam_threshold = button.getCurrentFoamThreshold();
+  float foam_threshold = button.getCurrentFoamThreshold();
 
   // turn on LEDs with scaled colors
   for (int i = 0; i < NUM_LEDS; i++) {
